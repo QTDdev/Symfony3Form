@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+<table class="table table-hover ">
+
+    <thead>
+    <tr class="table-dark">
+
+        <th scope="col"></th>
+
+        <td scope="col">Titre</td>
+
+        <td scope="col">Date</td>
+
+        <td scope="col">Description</td>
+
+        <td scope="col">Type</td>
+
+        <td scope="col">Invites</td>
+
+
+
+    </tr>
+    </thead>
+
+
+
+    {% for evenement in evenements %}
+        <tbody>
+        <tr>
+            <th scope="row"></th>
+
+            <td>{{ evenement.title | upper}}</td>
+
+            <td>{{ evenement.date | date }}</td>
+
+            <td>{{ evenement.description }}</td>
+
+            <td>{{ evenement.type }}</td>
+
+
+            <td>{% for invite in evenement.invites %}
+                    <li>{{ invite.nom | upper }} {{ invite.prenom }} </li>
+                {% endfor %}
+
+            </td>
+
+        </tr>
+        </tbody>
+
+    {%  endfor %}
+
+
+
+
+
+</table>

@@ -1,0 +1,8 @@
+doc:
+    resource: "@DocBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

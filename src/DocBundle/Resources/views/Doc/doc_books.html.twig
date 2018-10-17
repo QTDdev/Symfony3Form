@@ -1,0 +1,50 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+<table class="table table-hover ">
+
+    <thead>
+    <tr class="table-dark">
+
+        <th scope="col"></th>
+
+        <td scope="col">Titre</td>
+
+        <td scope="col">Genre</td>
+
+        <td scope="col">Format</td>
+
+        <td scope="col">Nb Pages</td>
+
+        <td scope="col">Auteur</td>
+
+
+    </tr>
+    </thead>
+
+
+
+        {% for livre in livres %}
+    <tbody>
+    <tr>
+        <th scope="row"></th>
+
+        <td>{{ livre.title }}</td>
+
+        <td>{{ livre.genre }}</td>
+
+        <td>{{ livre.format }}</td>
+
+        <td>{{ livre.nbPage }}</td>
+
+        <td>{{ livre.author.nom | upper }}  {{ livre.author.prenom }}</td>
+    </tr>
+    </tbody>
+
+        {%  endfor %}
+
+
+
+
+
+</table>

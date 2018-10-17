@@ -1,0 +1,40 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+<table class="table table-hover ">
+
+    <thead>
+    <tr class="table-dark">
+
+        <th scope="col"></th>
+
+        <td scope="col">Id Invite</td>
+
+        <td scope="col">Nom</td>
+
+        <td scope="col">Prenom</td>
+
+
+
+    </tr>
+    </thead>
+
+
+
+    {% for invite in invites %}
+        <tbody>
+        <tr>
+            <th scope="row"></th>
+            <td>{{ invite.id }}</td>
+            <td>{{ invite.authors.nom }}</td>
+            <td>{{ invite.authors.prenom }}</td>
+        </tr>
+        </tbody>
+
+    {%  endfor %}
+
+
+
+
+
+</table>

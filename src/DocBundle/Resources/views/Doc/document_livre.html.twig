@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block principal %}
+    <link rel="stylesheet" href={{ asset('bundles/assets/css/livre.css') }} />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+    Fonction parent ici: {{ parent() }}<br/>
+    {{ render(controller('DocBundle:Livre:list')) }}
+{% for livre in livres %}
+    <h1>ICI c'est la biblio de: {%  include '@Doc/Doc/widget_access.html.twig' with {'titreWidget': livre.titre}%}</h1>
+
+    <div class="alert alert-success" role="alert">ID: {{ livre.id }} Titre: {{ livre.titre }}</div>
+
+
+{%  endfor %}
+{%  endblock %}
