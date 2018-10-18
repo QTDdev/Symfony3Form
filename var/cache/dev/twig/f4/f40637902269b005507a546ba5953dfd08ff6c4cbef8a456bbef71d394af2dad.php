@@ -22,8 +22,9 @@ class __TwigTemplate_2e6c1b443ce1b18a2a5db6a0f1accd76f2f378185120cfa0c6283d3a8e9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Doc/Doc/doc_books.html.twig"));
 
         // line 1
-        echo "
-<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
+        $this->loadTemplate("@Doc/Doc/navbar.html.twig", "@Doc/Doc/doc_books.html.twig", 1)->display($context);
+        // line 2
+        echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
 
 <table class=\"table table-hover \">
 
@@ -119,7 +120,7 @@ class __TwigTemplate_2e6c1b443ce1b18a2a5db6a0f1accd76f2f378185120cfa0c6283d3a8e9
 
     public function getDebugInfo()
     {
-        return array (  96 => 45,  83 => 40,  78 => 38,  73 => 36,  68 => 34,  63 => 32,  57 => 28,  53 => 27,  25 => 1,);
+        return array (  97 => 45,  84 => 40,  79 => 38,  74 => 36,  69 => 34,  64 => 32,  58 => 28,  54 => 27,  27 => 2,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -132,7 +133,7 @@ class __TwigTemplate_2e6c1b443ce1b18a2a5db6a0f1accd76f2f378185120cfa0c6283d3a8e9
 
     public function getSourceContext()
     {
-        return new Twig_Source("
+        return new Twig_Source("{%  include '@Doc/Doc/navbar.html.twig'%}
 <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
 
 <table class=\"table table-hover \">

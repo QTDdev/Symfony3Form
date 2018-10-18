@@ -3,7 +3,9 @@
 namespace DocBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTypeType;
@@ -26,7 +28,7 @@ class AuthorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', TextType::class)->add('prenom', TextType::class)->add('biographie', TextareaType::class)->add('birthday', DateType::class);
+        $builder->add('nom', TextType::class)->add('prenom', TextType::class)->add('biographie', TextareaType::class)->add('birthday', BirthdayType::class, ['label' => "Date de naissance", 'format' => "dd-MM-yyyy"])->add('save', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

@@ -1,4 +1,4 @@
-
+{%  include '@Doc/Doc/navbar.html.twig'%}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
 
 <table class="table table-hover ">
@@ -17,6 +17,8 @@
         <td scope="col">Livres</td>
 
         <td scope="col">Invite</td>
+
+        <td scope="col">Modification</td>
 
 
 
@@ -46,7 +48,18 @@
                 {{ author.invite.id }}</td>
                 {% endif %}
 
+            <td>
+                <form action="update/author/{{ author.id }}">
+                    <input type="submit" value="Modifier" />
+                </form>
+                <form action="delete/author/{{ author.id }}">
+                                    <input type="submit" value="Supprimer"/>
+                </form>
+             </td>
+
         </tr>
+
+
         </tbody>
 
     {%  endfor %}

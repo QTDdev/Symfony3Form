@@ -64,10 +64,10 @@ class Author extends \DocBundle\Entity\Author implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'id', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'nom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'prenom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'biographie', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'livres', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'invite'];
+            return ['__isInitialized__', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'id', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'nom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'prenom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'biographie', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'livres', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'invite', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'birthday'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'id', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'nom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'prenom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'biographie', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'livres', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'invite'];
+        return ['__isInitialized__', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'id', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'nom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'prenom', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'biographie', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'livres', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'invite', '' . "\0" . 'DocBundle\\Entity\\Author' . "\0" . 'birthday'];
     }
 
     /**
@@ -173,6 +173,28 @@ class Author extends \DocBundle\Entity\Author implements \Doctrine\ORM\Proxy\Pro
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getBirthday()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBirthday', []);
+
+        return parent::getBirthday();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBirthday($birthday)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBirthday', [$birthday]);
+
+        return parent::setBirthday($birthday);
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -1,0 +1,9 @@
+{%  include '@Doc/Doc/navbar.html.twig'%}
+{# Methode form est réservé, ensuite on lui passe le ou les formulaires passés en paramètres#}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+<h1 class="alert alert-warning ">Êtes vous sûr de vouloir supprimer l'auteur {{ formAuthor.vars.value.nom | upper }} {{ formAuthor.vars.value.prenom }}?</h1>
+
+<form action="{{ formAuthor.vars.value.id }}/1">
+                                    <input type="submit" value="Confirmer la suppression"/>
+ </form>

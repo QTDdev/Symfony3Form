@@ -1,0 +1,24 @@
+
+
+
+{{ form_start(formAuthor) }}
+
+    {{ form_label(formAuthor.nom, "Nom de l'auteur") }}
+    {{ form_widget(formAuthor.nom) }}
+
+    {{ form_label(formAuthor.nom, "Prenom de l'auteur") }}
+    {{ form_widget(formAuthor.prenom) }}
+
+    {{ form_label(formAuthor.biographie, "Biographie de l'auteur") }}
+    {{ form_widget(formAuthor.biographie) }}
+
+    <br>
+    {{ form_label(formAuthor.birthday, "Date de naissance de l'auteur") }}
+    {{ form_widget(formAuthor.birthday) }}
+
+    {{ form_label(formAuthor.save, "Enregistrer") }}
+    {{ form_widget(formAuthor.save ) }}
+
+
+
+{{ form_end(formAuthor) }}

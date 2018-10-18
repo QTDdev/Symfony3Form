@@ -117,6 +117,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'DocBundle\\Controller\\AuthorController::ajouterAuthorAction',  '_route' => 'docAuthorsAdd',);
         }
 
+        // docAuthorsUpdate
+        if (0 === strpos($pathinfo, '/delete/author') && preg_match('#^/delete/author/(?P<id>[^/]++)(?:/(?P<confirm>[^/]++))?$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'docAuthorsUpdate')), array (  'confirm' => 0,  '_controller' => 'DocBundle\\Controller\\AuthorController::deleteAuthorAction',));
+        }
+
         // doc_default_index
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'DocBundle\\Controller\\DefaultController::indexAction',  '_route' => 'doc_default_index',);

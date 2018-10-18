@@ -22,8 +22,9 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Doc/Doc/doc_authors.html.twig"));
 
         // line 1
-        echo "
-<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
+        $this->loadTemplate("@Doc/Doc/navbar.html.twig", "@Doc/Doc/doc_authors.html.twig", 1)->display($context);
+        // line 2
+        echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
 
 <table class=\"table table-hover \">
 
@@ -42,6 +43,8 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
         <td scope=\"col\">Invite</td>
 
+        <td scope=\"col\">Modification</td>
+
 
 
     </tr>
@@ -50,36 +53,36 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
 
     ";
-        // line 28
+        // line 30
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["authors"] ?? $this->getContext($context, "authors")));
         foreach ($context['_seq'] as $context["_key"] => $context["author"]) {
-            // line 29
+            // line 31
             echo "        <tbody>
         <tr>
             <th scope=\"row\"></th>
 
             <td>";
-            // line 33
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute($context["author"], "nom", array()), "html", null, true);
             echo "</td>
 
             <td>";
-            // line 35
+            // line 37
             echo twig_escape_filter($this->env, $this->getAttribute($context["author"], "prenom", array()), "html", null, true);
             echo "</td>
 
             <td>";
-            // line 37
+            // line 39
             echo twig_escape_filter($this->env, $this->getAttribute($context["author"], "biographie", array()), "html", null, true);
             echo "</td>
 
             <td>";
-            // line 39
+            // line 41
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["author"], "livres", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["livre"]) {
-                // line 40
+                // line 42
                 echo "            <li>";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["livre"], "title", array()), "html", null, true);
                 echo "</li>
@@ -88,22 +91,39 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['livre'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 42
+            // line 44
             echo "
             </td>
 
             <td>";
-            // line 45
+            // line 47
             if ($this->getAttribute($this->getAttribute($context["author"], "invite", array(), "any", false, true), "id", array(), "any", true, true)) {
-                // line 46
+                // line 48
                 echo "                ";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["author"], "invite", array()), "id", array()), "html", null, true);
                 echo "</td>
                 ";
             }
-            // line 48
+            // line 50
             echo "
+            <td>
+                <form action=\"update/author/";
+            // line 52
+            echo twig_escape_filter($this->env, $this->getAttribute($context["author"], "id", array()), "html", null, true);
+            echo "\">
+                    <input type=\"submit\" value=\"Modifier\" />
+                </form>
+                <form action=\"delete/author/";
+            // line 55
+            echo twig_escape_filter($this->env, $this->getAttribute($context["author"], "id", array()), "html", null, true);
+            echo "\">
+                                    <input type=\"submit\" value=\"Supprimer\"/>
+                </form>
+             </td>
+
         </tr>
+
+
         </tbody>
 
     ";
@@ -111,7 +131,7 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['author'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
+        // line 66
         echo "
 
 
@@ -138,7 +158,7 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
     public function getDebugInfo()
     {
-        return array (  115 => 53,  105 => 48,  99 => 46,  97 => 45,  92 => 42,  83 => 40,  79 => 39,  74 => 37,  69 => 35,  64 => 33,  58 => 29,  54 => 28,  25 => 1,);
+        return array (  135 => 66,  118 => 55,  112 => 52,  108 => 50,  102 => 48,  100 => 47,  95 => 44,  86 => 42,  82 => 41,  77 => 39,  72 => 37,  67 => 35,  61 => 31,  57 => 30,  27 => 2,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -151,7 +171,7 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
     public function getSourceContext()
     {
-        return new Twig_Source("
+        return new Twig_Source("{%  include '@Doc/Doc/navbar.html.twig'%}
 <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\"/>
 
 <table class=\"table table-hover \">
@@ -170,6 +190,8 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
         <td scope=\"col\">Livres</td>
 
         <td scope=\"col\">Invite</td>
+
+        <td scope=\"col\">Modification</td>
 
 
 
@@ -199,7 +221,18 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
                 {{ author.invite.id }}</td>
                 {% endif %}
 
+            <td>
+                <form action=\"update/author/{{ author.id }}\">
+                    <input type=\"submit\" value=\"Modifier\" />
+                </form>
+                <form action=\"delete/author/{{ author.id }}\">
+                                    <input type=\"submit\" value=\"Supprimer\"/>
+                </form>
+             </td>
+
         </tr>
+
+
         </tbody>
 
     {%  endfor %}
