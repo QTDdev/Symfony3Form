@@ -112,6 +112,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'docAuthors')), array (  'id' => 0,  '_controller' => 'DocBundle\\Controller\\AuthorController::afficheAuthorAction',));
         }
 
+        // docAuthorsAdd
+        if ('/new/author' === $pathinfo) {
+            return array (  '_controller' => 'DocBundle\\Controller\\AuthorController::ajouterAuthorAction',  '_route' => 'docAuthorsAdd',);
+        }
+
         // doc_default_index
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'DocBundle\\Controller\\DefaultController::indexAction',  '_route' => 'doc_default_index',);
@@ -154,8 +159,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // docBooksQuery
-            if (0 === strpos($pathinfo, '/books/query') && preg_match('#^/books/query/(?P<offset>[^/]++)(?:/(?P<limit>[^/]++)(?:/(?P<name>[^/]++))?)?$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'docBooksQuery')), array (  'ofsset' => 0,  'limit' => 0,  'name' => '',  '_controller' => 'DocBundle\\Controller\\LivreController::afficheBookQueryAction',));
+            if (0 === strpos($pathinfo, '/books/dql') && preg_match('#^/books/dql/(?P<offset>[^/]++)(?:/(?P<limit>[^/]++)(?:/(?P<name>[^/]++))?)?$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'docBooksQuery')), array (  'ofsset' => 0,  'limit' => 0,  'name' => '',  '_controller' => 'DocBundle\\Controller\\LivreController::afficheBookDqlAction',));
             }
 
         }

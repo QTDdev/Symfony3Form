@@ -101,9 +101,8 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
                 echo "</td>
                 ";
             }
-            // line 47
-            echo "     
-
+            // line 48
+            echo "
         </tr>
         </tbody>
 
@@ -139,7 +138,7 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
     public function getDebugInfo()
     {
-        return array (  116 => 53,  105 => 47,  99 => 46,  97 => 45,  92 => 42,  83 => 40,  79 => 39,  74 => 37,  69 => 35,  64 => 33,  58 => 29,  54 => 28,  25 => 1,);
+        return array (  115 => 53,  105 => 48,  99 => 46,  97 => 45,  92 => 42,  83 => 40,  79 => 39,  74 => 37,  69 => 35,  64 => 33,  58 => 29,  54 => 28,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -198,7 +197,7 @@ class __TwigTemplate_80cd19efbddc882f405a852ce527d133b5e28796a4bd7de8d740f43dff2
 
             <td>{% if author.invite.id is defined %}
                 {{ author.invite.id }}</td>
-                {% endif %}     
+                {% endif %}
 
         </tr>
         </tbody>

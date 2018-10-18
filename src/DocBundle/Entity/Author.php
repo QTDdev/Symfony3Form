@@ -53,6 +53,22 @@ class Author
      */
     private $livres;
 
+    /**
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @param \DateTime $birthday
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    }
+
 
     /**
      *
@@ -61,6 +77,18 @@ class Author
      *
      */
     private $invite;
+
+
+    /**
+     *
+     *
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthday", type="datetime", nullable=true)
+     *
+     */
+    private $birthday;
+
 
     /**
      * @return Invite
