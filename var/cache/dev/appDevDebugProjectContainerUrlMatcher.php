@@ -147,9 +147,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'DocBundle\\Controller\\LivreController::listAction',  '_route' => 'docListe',);
         }
 
-        // docBooks
-        if (0 === strpos($pathinfo, '/books') && preg_match('#^/books(?:/(?P<id>[^/]++))?$#sD', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'docBooks')), array (  'id' => 0,  '_controller' => 'DocBundle\\Controller\\LivreController::afficheBookAction',));
+        if (0 === strpos($pathinfo, '/books')) {
+            // docBooks
+            if (preg_match('#^/books(?:/(?P<id>[^/]++))?$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'docBooks')), array (  'id' => 0,  '_controller' => 'DocBundle\\Controller\\LivreController::afficheBookAction',));
+            }
+
+            // docBooksQuery
+            if (0 === strpos($pathinfo, '/books/query') && preg_match('#^/books/query/(?P<offset>[^/]++)(?:/(?P<limit>[^/]++)(?:/(?P<name>[^/]++))?)?$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'docBooksQuery')), array (  'ofsset' => 0,  'limit' => 0,  'name' => '',  '_controller' => 'DocBundle\\Controller\\LivreController::afficheBookQueryAction',));
+            }
+
         }
 
         // homepage

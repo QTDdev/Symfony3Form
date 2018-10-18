@@ -72,4 +72,34 @@ class LivreController extends Controller
         return $this->render('@Doc/Doc/doc_books.html.twig', array('livres' => $response) );
 
     }
+
+
+    /**
+     * @Route("/books/query/{offset}/{limit}/{name}", name="docBooksQuery", defaults={"ofsset"=0,"limit"=0, "name"=""})
+     * @TODO Le but c'est d'afficher des Lires en base avec query slector
+     *
+     */
+    public function afficheBookQueryAction($offset,$limit,$name)
+    {
+
+
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $rep = $em->getRepository("DocBundle:Book");
+        $qb = $rep->createQueryBuilder('b');
+        $qb->select('b');
+        $name != "" ? ($qb->where('b.title like :name ' ) && $qb->setParameter('name', "%$name%") ) : $name;
+        $qb->orderBy('b.id', "ASC");
+        $offset != 0 ? $qb->setFirstResult($offset): $offset;
+        $limit != 0 ? $qb->setMaxResults($limit): $limit;
+        $query = $qb->getQuery();
+        $response = $query->getResult();
+
+
+
+
+        return $this->render('@Doc/Doc/doc_books.html.twig', array('livres' => $response) );
+
+    }
+
 }
