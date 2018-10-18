@@ -27,6 +27,7 @@ CREATE TABLE `author` (
   `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `biographie` text COLLATE utf8_unicode_ci,
+  `birthday` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,7 +38,7 @@ CREATE TABLE `author` (
 
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
-INSERT INTO `author` VALUES (1,'Rowling','J.K','Joanne Rowling, connue sous les pseudonymes de J. K. Rowling et Robert Galbraith, est une romancière et scénariste britannique née le 31 juillet 1965 dans l’agglomération de Yate, dans le Gloucestershire, en Angleterre. Elle doit sa notoriété mondiale à la série Harry Potter, dont les romans traduits en près de quatre-vingts langues ont été vendus à plus de 500 millions d\'exemplaires dans le monde. '),(2,'Brown','Daniel Gerhard','Daniel Gerhard Brown, dit Dan Brown, né le 22 juin 1964 à Exeter dans le New Hampshire, est un romancier américain, auteur de plusieurs best-sellers appartenant au genre du roman policier mâtiné d\'ésotérisme, qui a vendu près de deux cents millions d\'exemplaires.\n\nIl a suscité une grande polémique avec la publication de ses romans ayant pour héros Robert Langdon : Anges et Démons, Da Vinci Code, Le Symbole perdu , Inferno et Origine. '),(3,'Levi','Primo','Primo Levi, né le 31 juillet 1919 à Turin et mort le 11 avril 1987 à Turin, est un docteur en chimie italien rendu célèbre par son livre Si c\'est un homme, dans lequel il relate son emprisonnement au cours de l\'année 1944 dans le camp de concentration et d\'extermination d\'Auschwitz-Monowitz.\n\nJuif italien de naissance, chimiste de profession et de vocation, il entre tardivement dans une carrière d\'écrivain orientée par l\'analyse scientifique de cette expérience de survivant de la Shoah, dans le but de montrer, retranscrire, transmettre, expliciter. Il est l\'auteur d\'histoires courtes, de poèmes et de romans. '),(4,'Otelli','Jean-Pierre','Jean-Pierre Otelli (né en 1948 à Paris) est un pilote professionnel (14 500 heures de vol à son actif)1, ex-leader de la patrouille de la Marche Verte des Forces Royales Air du Maroc (FRA), ayant écrit plusieurs livres sur le thème de l\'aéronautique. ');
+INSERT INTO `author` VALUES (1,'Rowling','J.K','Joanne Rowling, connue sous les pseudonymes de J. K. Rowling et Robert Galbraith, est une romancière et scénariste britannique née le 31 juillet 1965 dans l’agglomération de Yate, dans le Gloucestershire, en Angleterre. Elle doit sa notoriété mondiale à la série Harry Potter, dont les romans traduits en près de quatre-vingts langues ont été vendus à plus de 500 millions d\'exemplaires dans le monde. ',NULL),(2,'Brown','Daniel Gerhard','Daniel Gerhard Brown, dit Dan Brown, né le 22 juin 1964 à Exeter dans le New Hampshire, est un romancier américain, auteur de plusieurs best-sellers appartenant au genre du roman policier mâtiné d\'ésotérisme, qui a vendu près de deux cents millions d\'exemplaires.\n\nIl a suscité une grande polémique avec la publication de ses romans ayant pour héros Robert Langdon : Anges et Démons, Da Vinci Code, Le Symbole perdu , Inferno et Origine. ',NULL),(3,'Levi','Primo','Primo Levi, né le 31 juillet 1919 à Turin et mort le 11 avril 1987 à Turin, est un docteur en chimie italien rendu célèbre par son livre Si c\'est un homme, dans lequel il relate son emprisonnement au cours de l\'année 1944 dans le camp de concentration et d\'extermination d\'Auschwitz-Monowitz.\n\nJuif italien de naissance, chimiste de profession et de vocation, il entre tardivement dans une carrière d\'écrivain orientée par l\'analyse scientifique de cette expérience de survivant de la Shoah, dans le but de montrer, retranscrire, transmettre, expliciter. Il est l\'auteur d\'histoires courtes, de poèmes et de romans. ',NULL),(4,'Otelli','Jean-Pierre','Jean-Pierre Otelli (né en 1948 à Paris) est un pilote professionnel (14 500 heures de vol à son actif)1, ex-leader de la patrouille de la Marche Verte des Forces Royales Air du Maroc (FRA), ayant écrit plusieurs livres sur le thème de l\'aéronautique. ',NULL);
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 10:33:01
+-- Dump completed on 2018-10-18 11:25:42
