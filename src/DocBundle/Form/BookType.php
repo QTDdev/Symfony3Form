@@ -4,6 +4,7 @@ namespace DocBundle\Form;
 
 use DocBundle\Repository\AuthorRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class BookType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('genre')->add('format')->add('nbPage')
+        $builder->add('title')->add('genre')->add('format')->add('nbPage', NumberType::class)
             ->add('author', EntityType::class,[
                 'class' => 'DocBundle\Entity\Author',
                 'query_builder' => function(AuthorRepository $er) {

@@ -9,10 +9,13 @@
 
     {{ form_label(formBook.format, "Format") }}
     {{ form_widget(formBook.format) }}
+    {{ form_errors(formBook.format) }}
+
 
     <br>
     {{ form_label(formBook.nbPage, "Nombre de page") }}
     {{ form_widget(formBook.nbPage) }}
+    {{ form_errors(formBook.nbPage) }}
 
 
 

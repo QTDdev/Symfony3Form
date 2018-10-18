@@ -3,6 +3,7 @@
 namespace DocBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Author
@@ -206,5 +207,21 @@ class Author
         $this->livres = $livres;
 
     }
+
+
+    /**
+     *
+     * @Assert\IsFalse(
+     *      message="Il ne doit pas y avoir de code HTML",
+     *      groups= {"html"}
+     * )
+     * @return string
+     *
+     */
+    public function hasBiographieHTML(){
+        $match = preg_match("/<\/?[a-z]+>/", $this->biographie);
+        return ($match == 1) ? true : false ;
+    }
+
 }
 

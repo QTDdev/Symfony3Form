@@ -3,6 +3,7 @@
 namespace DocBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Book
@@ -39,6 +40,11 @@ class Book
      * @var string
      *
      * @ORM\Column(name="format", type="string", length=255, nullable=true)
+     *
+     * @Assert\Choice(
+     *     choices={"livre", "ebook"},
+     *     message="Soit livre soit ebook"
+     * )
      */
     private $format;
 
@@ -46,6 +52,11 @@ class Book
      * @var string
      *
      * @ORM\Column(name="nbPage", type="string", length=255, nullable=true)
+     *
+     * @Assert\LessThan(
+     *     value = 1000,
+     *     message="Trop de page, moins de 1000"
+     * )
      */
     private $nbPage;
 

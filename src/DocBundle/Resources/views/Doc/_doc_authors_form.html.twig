@@ -3,14 +3,20 @@
 
 {{ form_start(formAuthor) }}
 
+
+    <div class="alert alert-dangerœ">{{ form_errors(formAuthor) }}</div>
+
+
     {{ form_label(formAuthor.nom, "Nom de l'auteur") }}
     {{ form_widget(formAuthor.nom) }}
+    {{ form_errors(formAuthor.nom) }}
 
     {{ form_label(formAuthor.nom, "Prenom de l'auteur") }}
     {{ form_widget(formAuthor.prenom) }}
 
     {{ form_label(formAuthor.biographie, "Biographie de l'auteur") }}
     {{ form_widget(formAuthor.biographie) }}
+
 
     <br>
     {{ form_label(formAuthor.birthday, "Date de naissance de l'auteur") }}

@@ -34,7 +34,8 @@ class AuthorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DocBundle\Entity\Author'
+            'data_class' => 'DocBundle\Entity\Author',
+            'validation_groups' => array('html')
         ));
     }
 
@@ -45,6 +46,9 @@ class AuthorType extends AbstractType
     {
         return 'docbundle_author';
     }
+
+
+
 
 
 }
