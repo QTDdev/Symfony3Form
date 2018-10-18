@@ -763,3 +763,10 @@ e7c2a6,127.0.0.1,GET,http://www.ged.fr/new/book,1539870183,,200
 fde75e,127.0.0.1,GET,http://www.ged.fr/new/book,1539870215,,500
 3f999f,127.0.0.1,GET,http://www.ged.fr/new/book,1539870262,,200
 edcb02,127.0.0.1,GET,http://www.ged.fr/new/book,1539870284,,200
+3638f4,127.0.0.1,POST,http://www.ged.fr/new/book,1539870363,,302
+ec22ca,127.0.0.1,GET,http://www.ged.fr/authors,1539870363,,200
+a4aed7,127.0.0.1,GET,http://www.ged.fr/new/book,1539870775,24fd56,200
+24fd56,127.0.0.1,GET,http://www.ged.fr/new/book,1539870775,,500
+55ff3f,127.0.0.1,GET,http://www.ged.fr/new/book,1539870784,63cfd9,200
+63cfd9,127.0.0.1,GET,http://www.ged.fr/new/book,1539870784,,500
+e777a2,127.0.0.1,GET,http://www.ged.fr/new/book,1539870795,,200
