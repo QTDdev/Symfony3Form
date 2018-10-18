@@ -3,8 +3,11 @@
 namespace DocBundle\Controller;
 
 use DocBundle\Classes\Livre;
+use DocBundle\Entity\Book;
+use DocBundle\Form\BookType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class LivreController extends Controller
@@ -131,5 +134,39 @@ class LivreController extends Controller
         return $this->render('@Doc/Doc/doc_books.html.twig', array('livres' => $response) );
 
     }
+
+
+    /**
+     * @Route("/new/book", name="docbookAdd" )
+     * @TODO Le but c'est d'ajouter des livres en base
+     *
+     */
+    public function ajouterABookAction(Request $request)
+    {
+        //On va voir s'il y a une requête et la traité
+        $em = $this->get('doctrine.orm.entity_manager');
+
+
+        $book = new Book;
+        $form = $this->createForm(BookType::class, $book);
+
+
+        if($request->isMethod('POST')){
+            $form->handleRequest($request);
+            if($form->isValid()){
+                $em->persist($book);
+                $em->flush();
+
+                return $this->redirectToRoute("docAuthors");
+            }
+        }
+
+
+
+
+        return $this->render('@Doc/Doc/doc_book_add.html.twig', array('formBook' => $form->createView()) );
+
+    }
+
 
 }

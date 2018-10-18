@@ -28,7 +28,7 @@ class AuthorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', TextType::class)->add('prenom', TextType::class)->add('biographie', TextareaType::class)->add('birthday', BirthdayType::class, ['label' => "Date de naissance", 'format' => "dd-MM-yyyy"])->add('save', SubmitType::class);
+        $builder->add('nom', TextType::class)->add('prenom', TextType::class)->add('biographie', TextareaType::class)->add('birthday', BirthdayType::class, ['label' => "Date de naissance", 'format' => "dd-MM-yyyy"])->add('Sauvegarder  ', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

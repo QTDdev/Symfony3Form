@@ -1,0 +1,20 @@
+
+{{ form_start(formBook) }}
+
+    {{ form_label(formBook.title, "Titre du livre") }}
+    {{ form_widget(formBook.title) }}
+
+    {{ form_label(formBook.genre, "Genre") }}
+    {{ form_widget(formBook.genre) }}
+
+    {{ form_label(formBook.format, "Format") }}
+    {{ form_widget(formBook.format) }}
+
+    <br>
+    {{ form_label(formBook.nbPage, "Nombre de page") }}
+    {{ form_widget(formBook.nbPage) }}
+
+
+
+
+{{ form_end(formBook    ) }}
