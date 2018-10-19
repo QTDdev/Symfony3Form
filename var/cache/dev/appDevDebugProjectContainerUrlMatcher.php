@@ -112,6 +112,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'docAuthors')), array (  'id' => 0,  '_controller' => 'DocBundle\\Controller\\AuthorController::afficheAuthorAction',));
         }
 
+        // docAuthorManager
+        if (0 === strpos($pathinfo, '/author/manager') && preg_match('#^/author/manager/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'docAuthorManager')), array (  '_controller' => 'DocBundle\\Controller\\AuthorController::afficheAuthorManagerAction',));
+        }
+
         // docAuthorsAdd
         if ('/new/author' === $pathinfo) {
             return array (  '_controller' => 'DocBundle\\Controller\\AuthorController::ajouterAuthorAction',  '_route' => 'docAuthorsAdd',);

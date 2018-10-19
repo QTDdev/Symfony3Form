@@ -6,6 +6,23 @@ services:
 
     doc.chaines:
         class: DocBundle\Services\DocChaines
-        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    doc.formattype:
+        class: DocBundle\Form\FormatType
+        public: false
+        arguments: ['%formats%']
+
+    doc.authormanager:
+        class: DocBundle\Services\DocAuthorsManager
+        arguments: ['@doctrine.orm.entity_manager']
+
+    doc.entitylistenermaintenance:
+        class: DocBundle\Events\EntityListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: bandeauMaintenance}
 
 
+    doc.entitylistenerupdate:
+        class: DocBundle\Events\EntityListener
+        tags:
+            - { name: doctrine.event_listener, event: form.pre_bind , method: update}

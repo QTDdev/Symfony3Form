@@ -10,3 +10,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 43f1f014866f9635eecf36b4254f9197f4dcff9c
+    formats: essai
+

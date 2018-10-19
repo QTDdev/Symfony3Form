@@ -15,13 +15,25 @@ class DocChaines
 
     /**
      * @param String $string
-     * @return String $string
+     * @return  string
      *
      */
-    public function Upper($string){
+    public function Upper(String $string){
         return strtoupper($string);
 
 }
+
+
+    /**
+     * @param String $string
+     * @return string
+     *
+     *
+     */
+
+    public function lower(String $string){
+        return strtolower($string);
+    }
 
 
 }

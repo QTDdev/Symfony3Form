@@ -320,4 +320,15 @@ class Author extends \DocBundle\Entity\Author implements \Doctrine\ORM\Proxy\Pro
         return parent::setLivres($livres);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function hasBiographieHTML()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasBiographieHTML', []);
+
+        return parent::hasBiographieHTML();
+    }
+
 }

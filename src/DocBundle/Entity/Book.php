@@ -54,7 +54,7 @@ class Book
      * @ORM\Column(name="nbPage", type="string", length=255, nullable=true)
      *
      * @Assert\LessThan(
-     *     value = 1000,
+     *     value = 2000,
      *     message="Trop de page, moins de 1000"
      * )
      */

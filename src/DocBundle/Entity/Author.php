@@ -90,6 +90,33 @@ class Author
      */
     private $birthday;
 
+    /**
+     * @return \DateTime
+     */
+    public function getUpdate()
+    {
+        return $this->update;
+    }
+
+    /**
+     * @param \DateTime $update
+     */
+    public function setUpdate($update)
+    {
+        $this->update = $update;
+    }
+
+
+    /**
+     *
+     *
+     * @var \DateTime
+     *
+     * @ORM\Column(name="update", type="datetime", nullable=true)
+     *
+     */
+    private $update;
+
 
     /**
      * @return Invite
@@ -222,6 +249,10 @@ class Author
         $match = preg_match("/<\/?[a-z]+>/", $this->biographie);
         return ($match == 1) ? true : false ;
     }
+
+
+
+
 
 }
 

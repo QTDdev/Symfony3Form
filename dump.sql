@@ -28,8 +28,9 @@ CREATE TABLE `author` (
   `prenom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `biographie` text COLLATE utf8_unicode_ci,
   `birthday` datetime DEFAULT NULL,
+  `update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `author` (
 
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
-INSERT INTO `author` VALUES (1,'Rowling','J.K','Joanne Rowling, connue sous les pseudonymes de J. K. Rowling et Robert Galbraith, est une romancière et scénariste britannique née le 31 juillet 1965 dans l’agglomération de Yate, dans le Gloucestershire, en Angleterre. Elle doit sa notoriété mondiale à la série Harry Potter, dont les romans traduits en près de quatre-vingts langues ont été vendus à plus de 500 millions d\'exemplaires dans le monde.','1898-01-01 00:00:00'),(2,'Brown','Daniel Gerhard','Daniel Gerhard Brown, dit Dan Brown, né le 22 juin 1964 à Exeter dans le New Hampshire, est un romancier américain, auteur de plusieurs best-sellers appartenant au genre du roman policier mâtiné d\'ésotérisme, qui a vendu près de deux cents millions d\'exemplaires.\n\nIl a suscité une grande polémique avec la publication de ses romans ayant pour héros Robert Langdon : Anges et Démons, Da Vinci Code, Le Symbole perdu , Inferno et Origine. ',NULL),(3,'Levi','Primo','Primo Levi, né le 31 juillet 1919 à Turin et mort le 11 avril 1987 à Turin, est un docteur en chimie italien rendu célèbre par son livre Si c\'est un homme, dans lequel il relate son emprisonnement au cours de l\'année 1944 dans le camp de concentration et d\'extermination d\'Auschwitz-Monowitz.\n\nJuif italien de naissance, chimiste de profession et de vocation, il entre tardivement dans une carrière d\'écrivain orientée par l\'analyse scientifique de cette expérience de survivant de la Shoah, dans le but de montrer, retranscrire, transmettre, expliciter. Il est l\'auteur d\'histoires courtes, de poèmes et de romans. ',NULL),(4,'Otelli','Jean-Pierre','Jean-Pierre Otelli (né en 1948 à Paris) est un pilote professionnel (14 500 heures de vol à son actif)1, ex-leader de la patrouille de la Marche Verte des Forces Royales Air du Maroc (FRA), ayant écrit plusieurs livres sur le thème de l\'aéronautique. ',NULL);
+INSERT INTO `author` VALUES (1,'Rowling','J.K','Joanne Rowling, connue sous les pseudonymes de J. K. Rowling et Robert Galbraith, est une romancière et scénariste britannique née le 31 juillet 1965 dans l’agglomération de Yate, dans le Gloucestershire, en Angleterre. Elle doit sa notoriété mondiale à la série Harry Potter, dont les romans traduits en près de quatre-vingts langues ont été vendus à plus de 500 millions d\'exemplaires dans le monde.','1898-01-01 00:00:00',NULL),(2,'Brown','Daniel Gerhard','Daniel Gerhard Brown, dit Dan Brown, né le 22 juin 1964 à Exeter dans le New Hampshire, est un romancier américain, auteur de plusieurs best-sellers appartenant au genre du roman policier mâtiné d\'ésotérisme, qui a vendu près de deux cents millions d\'exemplaires.\n\nIl a suscité une grande polémique avec la publication de ses romans ayant pour héros Robert Langdon : Anges et Démons, Da Vinci Code, Le Symbole perdu , Inferno et Origine. ',NULL,NULL),(3,'Levi','Primo','Primo Levi, né le 31 juillet 1919 à Turin et mort le 11 avril 1987 à Turin, est un docteur en chimie italien rendu célèbre par son livre Si c\'est un homme, dans lequel il relate son emprisonnement au cours de l\'année 1944 dans le camp de concentration et d\'extermination d\'Auschwitz-Monowitz.\n\nJuif italien de naissance, chimiste de profession et de vocation, il entre tardivement dans une carrière d\'écrivain orientée par l\'analyse scientifique de cette expérience de survivant de la Shoah, dans le but de montrer, retranscrire, transmettre, expliciter. Il est l\'auteur d\'histoires courtes, de poèmes et de romans. ',NULL,NULL),(4,'Otelli','Jean-Pierre','Jean-Pierre Otelli (né en 1948 à Paris) est un pilote professionnel (14 500 heures de vol à son actif)1, ex-leader de la patrouille de la Marche Verte des Forces Royales Air du Maroc (FRA), ayant écrit plusieurs livres sur le thème de l\'aéronautique. ',NULL,NULL);
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +60,7 @@ CREATE TABLE `book` (
   PRIMARY KEY (`id`),
   KEY `IDX_CBE5A331A196F9FD` (`authorId`),
   CONSTRAINT `FK_CBE5A331A196F9FD` FOREIGN KEY (`authorId`) REFERENCES `author` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +69,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'The Philosopher\'s Stone','Fantastique','roman','306',1),(2,'Harry Potter and the\nChamber of Secrets','Fantastique','roman','364',1),(3,'Harry Potter and the\nPrisoner of Azkaban','Fantastique','roman','360',1),(4,'Harry Potter and the\nGoblet of Fire','Fantastique','roman','656',1),(5,'Harry Potter and the Order of the Phoenix','Fantastique','roman','975',1),(6,'Harry Potter and the\nHalf-Blood Prince','Fantastique','roman','720',1),(7,'Harry Potter and the\nDeathly Hallows','Fantastique','roman','809',1),(8,'Si c\'est un homme','Autobiographie','folio','255',2),(9,'La Trêve','Autobiographie','folio','345',2),(10,'Pilotes dans la tourmente : secret défense','Réalité','altipresse','176',3),(11,'Erreurs de pilotage : Ces accidents qu\'on aurait pu éviter...','Réalité','altipresse','198',3),(12,'Les Chevaliers du Ciel : De la fiction... à la réalité','Réalité','altipress','235',3),(13,'Angels & Demons','Roman Policier','roman','571',4),(14,'The Da Vinci Code','Thriller','roman','571',4),(15,'The Lost Symbol','Roman Policier','roman','600',4),(16,'Inferno','Roman Policier','roman','591',4),(17,'L\'Appel du Coucou','Roman policier','roman','576',1);
+INSERT INTO `book` VALUES (1,'The Philosopher\'s Stone','Fantastique','roman','306',1),(2,'Harry Potter and the\nChamber of Secrets','Fantastique','roman','364',1),(3,'Harry Potter and the\nPrisoner of Azkaban','Fantastique','roman','360',1),(4,'Harry Potter and the\nGoblet of Fire','Fantastique','roman','656',1),(5,'Harry Potter and the Order of the Phoenix','Fantastique','roman','975',1),(6,'Harry Potter and the\nHalf-Blood Prince','Fantastique','roman','720',1),(7,'Harry Potter and the\nDeathly Hallows','Fantastique','roman','809',1),(8,'Si c\'est un homme','Autobiographie','folio','255',3),(9,'La Trêve','Autobiographie','folio','345',3),(10,'Pilotes dans la tourmente : secret défense','Réalité','altipresse','176',4),(11,'Erreurs de pilotage : Ces accidents qu\'on aurait pu éviter...','Réalité','altipresse','198',4),(12,'Les Chevaliers du Ciel : De la fiction... à la réalité','Réalité','altipress','235',4),(13,'Angels & Demons','Roman Policier','roman','571',2),(14,'The Da Vinci Code','Thriller','roman','571',2),(15,'The Lost Symbol','Roman Policier','roman','600',2),(16,'Inferno','Roman Policier','roman','591',2),(17,'L\'Appel du Coucou','Roman policier','roman','576',1),(19,'La Clef à molette','lgbtqi+*','livre','1945',3);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 16:58:44
+-- Dump completed on 2018-10-19 16:43:17

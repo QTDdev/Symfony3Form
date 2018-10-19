@@ -18,7 +18,9 @@ class BookType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('genre')->add('format')->add('nbPage', NumberType::class)
+        $builder->add('title')->add('genre')
+            ->add('format', FormatType::class)
+            ->add('nbPage', NumberType::class)
             ->add('author', EntityType::class,[
                 'class' => 'DocBundle\Entity\Author',
                 'query_builder' => function(AuthorRepository $er) {

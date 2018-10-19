@@ -110,6 +110,7 @@
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">43f1f014866f9635eecf36b4254f9197f4dcff9c</parameter>
+    <parameter key="formats">essai</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -509,6 +510,20 @@
     <service id="AppBundle\AppBundle" class="AppBundle\AppBundle" public="false" autowire="true" autoconfigure="true"/>
     <service id="AppBundle\Controller\DefaultController" class="AppBundle\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
+    </service>
+    <service id="doc.chaines" class="DocBundle\Services\DocChaines"/>
+    <service id="doc.formattype" class="DocBundle\Form\FormatType" public="false">
+      <argument>essai</argument>
+    </service>
+    <service id="doc.authormanager" class="DocBundle\Services\DocAuthorsManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="doc.entitylistenermaintenance" class="DocBundle\Events\EntityListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="bandeauMaintenance"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="doc.entitylistenerupdate" class="DocBundle\Events\EntityListener">
+      <tag name="doctrine.event_listener" event="form.pre_bind" method="update"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -1441,6 +1456,14 @@
       <argument type="service" id="debug.stopwatch"/>
       <argument type="service" id="monolog.logger.event" on-invalid="null"/>
       <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="doc.entitylistenermaintenance"/>
+          <argument>bandeauMaintenance</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
@@ -1594,14 +1617,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -3112,6 +3127,12 @@
     </service>
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
       <argument type="service" id="service_container"/>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>form.pre_bind</argument>
+        </argument>
+        <argument type="service" id="doc.entitylistenerupdate"/>
+      </call>
       <call method="addEventListener">
         <argument type="collection">
           <argument>loadClassMetadata</argument>
